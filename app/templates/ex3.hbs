@@ -1,0 +1,32 @@
+{{page-title "Ex3"}}
+<div class="main">
+  <h1>Sélectrionnez vos produits</h1>
+  <div class="content">
+    <label>Produits disponibles :
+<MultiSelect @elements={{this.dispoItems}}
+             @onchange={{this.changeDispo}} size="10" multiple="multiple"/>
+    </label>
+  <div class="buttons">
+    <button {{ on "click" (fn this.changeDispo @model) }}>
+      <i class="fas fa-step-forward"></i>
+    </button>
+    <button {{ on "click" (fn this.changeIncluded @model) }}>
+      <i class="fas fa-forward"></i>
+    </button>
+    <button {{ on "click" (fn this.add this.dispoItems this.includedItems this.dispoItems_ @model) }}>
+      <i class="fas fa-step-backward"></i>
+    </button>
+    <button {{ on "click" (fn this.add this.dispoItems this.includedItems this.dispoItems_ @model) }}>
+      <i class="fas fa-fast-backward"></i>
+    </button>
+  </div>
+    <label>Produits disponibles :
+  <MultiSelect @elements={{this.includedItems}}  size="10" multiple="multiple"/>
+    </label>
+  </div>
+  <div style="margin-bottom: 15px">X produits selectionnés </div>
+  <div class="next">
+    Etape suivante
+  </div>
+</div>
+{{outlet}}
