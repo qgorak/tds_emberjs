@@ -1,0 +1,57 @@
+{{page-title "Contacts"}}
+<table>
+  <thead>
+  <th>Nom</th>
+  <th>Prenom</th>
+  <th>email</th>
+  <th>action</th>
+  </thead>
+  <tbody>
+{{#each @model.contacts as |elm|}}
+  <tr>
+    <td>
+      {{ elm.nom }}
+    </td>
+    <td>
+      {{ elm.prenom }}
+    </td>
+    <td>
+      {{ elm.email }}
+    </td>
+    <td>
+      <button {{action "delete" elm}}>Delete</button>
+    </td>
+  </tr>
+{{/each}}
+  </tbody>
+</table>
+
+<table>
+  <thead>
+  <th>Nom</th>
+  <th>Prenom</th>
+  <th>email</th>
+  <th></th>
+  </thead>
+  <tbody>
+  {{#each @model.deleteds as |elm|}}
+    <tr>
+      <td>
+        {{ elm.nom }}
+      </td>
+      <td>
+        {{ elm.prenom }}
+      </td>
+      <td>
+        {{ elm.email }}
+      </td>
+      <td>
+
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+<button {{action "cancelDeletion" @model.deleteds}}>Rollback</button>
+{{ @model.count }}
+{{outlet}}
